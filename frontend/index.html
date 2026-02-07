@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Monitor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🛡️ Compliance Monitor</h1>
+                <p class="subtitle">AI-Powered Chatbot Evaluation & Drift Detection</p>
+            </div>
+            <div class="header-actions">
+                <button id="generateDataset" class="btn btn-primary">
+                    📝 Generate Dataset
+                </button>
+                <button id="runEval" class="btn btn-success">
+                    ▶️ Run Evaluation
+                </button>
+            </div>
+        </header>
+
+        <!-- Status Banner -->
+        <div id="statusBanner" class="status-banner hidden">
+            <span id="statusMessage"></span>
+        </div>
+
+        <!-- Metrics Overview -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">✅</div>
+                <div class="metric-content">
+                    <h3>Compliance Rate</h3>
+                    <div class="metric-value" id="complianceRate">--</div>
+                    <div class="metric-label">Policy Adherence</div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">❤️</div>
+                <div class="metric-content">
+                    <h3>Avg Empathy Score</h3>
+                    <div class="metric-value" id="empathyScore">--</div>
+                    <div class="metric-label">Out of 5.0</div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🚩</div>
+                <div class="metric-content">
+                    <h3>Total Flags</h3>
+                    <div class="metric-value" id="totalFlags">--</div>
+                    <div class="metric-label">Policy Violations</div>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-content">
+                    <h3>Evaluations Run</h3>
+                    <div class="metric-value" id="totalEvals">--</div>
+                    <div class="metric-label">Total Tests</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2>📈 Compliance Drift Over Time</h2>
+                    <p class="chart-description">Monitor policy compliance trends</p>
+                </div>
+                <canvas id="complianceChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h2>💝 Empathy Score Trend</h2>
+                    <p class="chart-description">Track customer experience quality</p>
+                </div>
+                <canvas id="empathyChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Detailed Results -->
+        <section class="results-section">
+            <div class="section-header">
+                <h2>📋 Recent Evaluation Results</h2>
+                <button id="refreshResults" class="btn btn-secondary">🔄 Refresh</button>
+            </div>
+            
+            <div id="resultsContainer" class="results-grid">
+                <p class="placeholder">No evaluation results yet. Click "Run Evaluation" to start.</p>
+            </div>
+        </section>
+
+        <!-- Dataset Preview -->
+        <section class="dataset-section">
+            <div class="section-header">
+                <h2>🎯 Synthetic Dataset</h2>
+                <span id="datasetCount" class="badge">0 questions</span>
+            </div>
+            
+            <div id="datasetContainer" class="dataset-grid">
+                <p class="placeholder">No dataset generated yet. Click "Generate Dataset" to create one.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p id="loadingText">Processing...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

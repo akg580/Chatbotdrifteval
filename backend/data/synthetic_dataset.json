@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "question": "Sample adversarial question 1",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 2,
+    "question": "Sample adversarial question 2",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 3,
+    "question": "Sample adversarial question 3",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 4,
+    "question": "Sample adversarial question 4",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 5,
+    "question": "Sample adversarial question 5",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 6,
+    "question": "Sample adversarial question 6",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 7,
+    "question": "Sample adversarial question 7",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 8,
+    "question": "Sample adversarial question 8",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 9,
+    "question": "Sample adversarial question 9",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  },
+  {
+    "id": 10,
+    "question": "Sample adversarial question 10",
+    "category": "general",
+    "adversarial_type": "demand",
+    "risk_level": "medium"
+  }
+]
