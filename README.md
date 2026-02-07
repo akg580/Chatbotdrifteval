@@ -1,8 +1,8 @@
 # Compliance Monitor for Customer Support Chatbot
 
-## 🎉 100% FREE to Run with Groq API!
+##   Run with Groq API!
 
-An AI-powered evaluation system that monitors chatbot responses for policy compliance and empathy. **Now supports FREE Groq API** - no credit card needed!
+An AI-powered evaluation system that monitors chatbot responses for policy compliance and empathy. ** supports FREE Groq API**
 
 ## Overview
 
@@ -11,26 +11,26 @@ Banks use chatbots for customer service, but fear they might make unauthorized p
 
 ### The Solution
 Automated evaluation suite that runs nightly to test chatbot safety using:
-- 🎯 **Synthetic Dataset**: Generates 50 adversarial questions
-- 🤖 **LLM-as-a-Judge**: Dual scoring (Compliance + Empathy)
-- 📊 **Drift Dashboard**: Monitors compliance over time
+-  **Synthetic Dataset**: Generates 50 adversarial questions
+-  **LLM-as-a-Judge**: Dual scoring (Compliance + Empathy)
+- **Drift Dashboard**: Monitors compliance over time
 
-## ✨ Features
-- 🤖 Synthetic adversarial dataset generation
-- 📊 LLM-as-a-Judge evaluation system
-- 📈 Drift detection dashboard
-- 🔍 Compliance scoring (0-1 scale)
-- ❤️ Empathy scoring (1-5 scale)
-- 🆓 **100% FREE with Groq API**
+##  Features
+-  Synthetic adversarial dataset generation
+-  LLM-as-a-Judge evaluation system
+- Drift detection dashboard
+- Compliance scoring (0-1 scale)
+- Empathy scoring (1-5 scale)
+- **100% FREE with Groq API**
 
-## 🆓 Cost Options
+##  Cost Options
 
 ### Option 1: Groq (FREE - Recommended!)
-- ✅ 100% FREE forever
-- ✅ No credit card required
-- ✅ Fast inference (3x faster!)
-- ✅ Great quality (Llama 3.3 70B)
-- 📖 **See GROQ_FREE_SETUP.md**
+-  100% FREE forever
+-  No credit card required
+- Fast inference (3x faster!)
+- Great quality (Llama 3.3 70B)
+-  **See GROQ_FREE_SETUP.md**
 
 ### Option 2: Anthropic Claude (Paid)
 - Best quality for nuanced evaluation
@@ -91,7 +91,7 @@ Open `frontend/index.html` in your browser
 - Chart.js for visualizations
 
 ## Documentation
-- **GROQ_FREE_SETUP.md** - Complete FREE setup guide ⭐
+- **GROQ_FREE_SETUP.md** - Complete FREE setup guide 
 - **QUICKSTART.md** - Fast 5-minute setup
 - **SETUP_GUIDE.md** - Detailed instructions
 - **PROJECT_OVERVIEW.md** - Full project details
@@ -115,12 +115,4 @@ LLM_PROVIDER=openai
 OPENAI_API_KEY=your_openai_key
 ```
 
-## Why This Project Stands Out
 
-1. ✅ **Cost-Effective**: FREE to run with Groq
-2. ✅ **Flexible Design**: Swap LLM providers easily
-3. ✅ **Production-Ready**: Error handling, testing, docs
-4. ✅ **Fast Performance**: Groq is 3x faster than alternatives
-5. ✅ **Full-Stack**: Backend + Frontend + AI evaluation
-
-Perfect for portfolio and real-world banking use cases! 🚀
