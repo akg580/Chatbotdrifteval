@@ -10,15 +10,167 @@ let empathyChart = null;
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
+    initializeTabs();
     loadDashboardData();
     initializeCharts();
 });
 
 // Event Listeners
 function initializeEventListeners() {
-    document.getElementById('generateDataset').addEventListener('click', generateDataset);
-    document.getElementById('runEval').addEventListener('click', runEvaluation);
-    document.getElementById('refreshResults').addEventListener('click', loadDashboardData);
+    // Dashboard buttons
+    document.getElementById('generateDataset')?.addEventListener('click', generateDataset);
+    document.getElementById('runEval')?.addEventListener('click', runEvaluation);
+    document.getElementById('refreshResults')?.addEventListener('click', loadDashboardData);
+    
+    // Chatbot buttons
+    document.getElementById('sendMessage')?.addEventListener('click', sendChatMessage);
+    document.getElementById('chatInput')?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendChatMessage();
+    });
+    
+    // Sample question buttons
+    document.querySelectorAll('.sample-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('chatInput').value = btn.textContent.replace(/"/g, '');
+            sendChatMessage();
+        });
+    });
+}
+
+// Tab Management
+function initializeTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabName = btn.dataset.tab;
+            switchTab(tabName);
+        });
+    });
+}
+
+function switchTab(tabName) {
+    // Update tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.tab === tabName) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update tab content
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    document.getElementById(`${tabName}-tab`)?.classList.add('active');
+}
+
+// Chatbot Functions
+async function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Clear input
+    input.value = '';
+    
+    // Add user message to chat
+    addMessageToChat(message, 'user');
+    
+    // Show loading
+    const loadingId = addMessageToChat('Typing...', 'bot', true);
+    
+    try {
+        // Call API to get bot response
+        const response = await fetch(`${API_BASE_URL}/api/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message })
+        });
+        
+        const data = await response.json();
+        
+        // Remove loading message
+        document.getElementById(loadingId)?.remove();
+        
+        if (data.success) {
+            // Add bot response
+            addMessageToChat(data.response, 'bot');
+            
+            // Show evaluation
+            displayRealtimeEvaluation(data.evaluation);
+        } else {
+            addMessageToChat('Sorry, I encountered an error. Please try again.', 'bot');
+            showStatus(`Error: ${data.error}`, 'error');
+        }
+    } catch (error) {
+        console.error('Chat error:', error);
+        document.getElementById(loadingId)?.remove();
+        addMessageToChat('Sorry, I\'m having trouble connecting. Please check if the backend is running.', 'bot');
+    }
+}
+
+function addMessageToChat(text, sender, isLoading = false) {
+    const messagesDiv = document.getElementById('chatMessages');
+    const messageId = `msg-${Date.now()}`;
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    messageDiv.id = messageId;
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+    bubble.textContent = text;
+    
+    if (isLoading) {
+        bubble.innerHTML = '<em>Typing...</em>';
+    }
+    
+    const time = document.createElement('div');
+    time.className = 'message-time';
+    time.textContent = new Date().toLocaleTimeString();
+    
+    messageDiv.appendChild(bubble);
+    if (!isLoading) messageDiv.appendChild(time);
+    
+    messagesDiv.appendChild(messageDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    
+    return messageId;
+}
+
+function displayRealtimeEvaluation(evaluation) {
+    const evalDiv = document.getElementById('realtimeEval');
+    
+    const isCompliant = evaluation.compliance_score === 1;
+    
+    evalDiv.innerHTML = `
+        <div class="eval-card ${isCompliant ? 'compliant' : 'non-compliant'}">
+            <div class="eval-scores">
+                <span class="eval-badge ${isCompliant ? 'compliant' : 'non-compliant'}">
+                    ${isCompliant ? '✅ Compliant' : '❌ Non-Compliant'}
+                </span>
+                <span class="eval-badge empathy">
+                    ❤️ Empathy: ${evaluation.empathy_score}/5
+                </span>
+            </div>
+            <div class="eval-reasoning">
+                <strong>Compliance:</strong> ${evaluation.compliance_reasoning}
+            </div>
+            <div class="eval-reasoning">
+                <strong>Empathy:</strong> ${evaluation.empathy_reasoning}
+            </div>
+            ${evaluation.flags && evaluation.flags.length > 0 ? `
+                <div class="eval-reasoning" style="color: var(--danger-color); font-weight: 600;">
+                    🚩 Flags: ${evaluation.flags.join(', ')}
+                </div>
+            ` : ''}
+        </div>
+    `;
 }
 
 // API Calls

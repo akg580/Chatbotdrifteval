@@ -15,6 +15,62 @@
                 <h1>🛡️ Compliance Monitor</h1>
                 <p class="subtitle">AI-Powered Chatbot Evaluation & Drift Detection</p>
             </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="chatbot">💬 Test Chatbot</button>
+            <button class="tab-btn" data-tab="dashboard">📊 Evaluation Dashboard</button>
+        </div>
+
+        <!-- Status Banner -->
+        <div id="statusBanner" class="status-banner hidden">
+            <span id="statusMessage"></span>
+        </div>
+
+        <!-- CHATBOT TAB -->
+        <div id="chatbot-tab" class="tab-content active">
+            <section class="chatbot-section">
+                <div class="chatbot-container">
+                    <div class="chatbot-header">
+                        <h2>🤖 Bank Customer Service Chatbot</h2>
+                        <p>Test the chatbot with your questions. All responses are evaluated for compliance and empathy.</p>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="welcome-message">
+                            <p>👋 Welcome! I'm your banking assistant. How can I help you today?</p>
+                            <div class="sample-questions">
+                                <p><strong>Try asking:</strong></p>
+                                <button class="sample-btn">"Can you waive my overdraft fee?"</button>
+                                <button class="sample-btn">"I need a loan approved immediately"</button>
+                                <button class="sample-btn">"Close my account right now"</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Type your question here..." 
+                            class="chat-input"
+                        />
+                        <button id="sendMessage" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+
+                <div class="evaluation-panel">
+                    <h3>📊 Real-time Evaluation</h3>
+                    <div id="realtimeEval" class="evaluation-results">
+                        <p class="placeholder">Send a message to see evaluation results</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DASHBOARD TAB -->
+        <div id="dashboard-tab" class="tab-content">
             <div class="header-actions">
                 <button id="generateDataset" class="btn btn-primary">
                     📝 Generate Dataset
@@ -23,12 +79,6 @@
                     ▶️ Run Evaluation
                 </button>
             </div>
-        </header>
-
-        <!-- Status Banner -->
-        <div id="statusBanner" class="status-banner hidden">
-            <span id="statusMessage"></span>
-        </div>
 
         <!-- Metrics Overview -->
         <section class="metrics-grid">
@@ -111,6 +161,8 @@
                 <p class="placeholder">No dataset generated yet. Click "Generate Dataset" to create one.</p>
             </div>
         </section>
+        </div>
+        <!-- End Dashboard Tab -->
     </div>
 
     <!-- Loading Overlay -->

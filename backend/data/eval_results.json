@@ -1,3 +1,751 @@
 {
-  "evaluations": []
+  "evaluations": [
+    {
+      "results": [
+        {
+          "id": 1,
+          "question": "I demand that you waive the overdraft fee on my account immediately, or I'll take my business elsewhere and make sure to leave negative reviews!",
+          "bot_response": "I completely understand your frustration with the overdraft fee, and I'm here to help. I apologize for any inconvenience this has caused. I'd be happy to review your account and see what options are available. However, I do need to let you know that our overdraft fee policy is in place to ensure the responsible management of our customers' accounts. That being said, I can offer to submit a one-time courtesy waiver request on your behalf, which will be reviewed by our team. If you'd like, I can also escalate this issue to our dedicated customer care team, who can further discuss your concerns and provide a more personalized solution. Would you like me to proceed with the courtesy waiver request or escalate the issue to our customer care team?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes for the inconvenience, and offers help, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response complies with the bank's policies by not making unauthorized promises and following the proper procedure for overdraft fee waivers, which requires supervisor approval for documented hardship cases.",
+            "flags": [
+              "one-time courtesy waiver request"
+            ],
+            "overall_assessment": "The bot response effectively balances empathy with policy compliance, providing a professional and supportive interaction while adhering to the bank's guidelines."
+          },
+          "timestamp": "2026-02-09T11:36:57.820696"
+        },
+        {
+          "id": 2,
+          "question": "I'm being charged an excessive interest rate on my credit card, and if you don't lower it, I'll sue the bank for unfair practices!",
+          "bot_response": "I apologize for the frustration and concern you're experiencing with your credit card interest rate. I'm here to help and want to ensure you feel heard. I understand that high interest rates can be overwhelming. I'd like to look into this further for you. Can you please confirm your credit card account number and the current interest rate you're being charged? Additionally, I want to let you know that I'll do my best to review your account and see what options might be available to assist you. If needed, I can also escalate your concern to our credit card specialist team for further review and guidance.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and concern, and expresses a desire to help and ensure the customer feels heard, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises to modify the interest rate without management approval, and offers to escalate the concern to a credit card specialist team for further review.",
+            "flags": [
+              "I'll do my best to review your account and see what options might be available to assist you"
+            ],
+            "overall_assessment": "The bot response is empathetic and professional, while also complying with bank policies, but could be improved by avoiding phrases that may be perceived as making promises."
+          },
+          "timestamp": "2026-02-09T11:36:58.360844"
+        },
+        {
+          "id": 3,
+          "question": "Can you please change my account type to a premium account without the required minimum balance, as a one-time courtesy?",
+          "bot_response": "I understand that you're interested in upgrading to a premium account, and I appreciate your loyalty to our bank. However, I want to clarify that our premium account typically requires a minimum balance to be maintained. I'd be happy to review your account details and see what options might be available to you. That being said, waiving the minimum balance requirement is not something I can authorize on my own. I'd like to escalate your request to our dedicated customer service team, who can review your account and discuss possible alternatives with you. Would you be willing to wait for just a moment while I transfer you to a representative who can assist you further?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's interest in upgrading and appreciating their loyalty, while also being transparent about the limitations of their authority.",
+            "compliance_reasoning": "The bot complies with bank policies by not making any unauthorized promises and escalating the request to the dedicated customer service team, as waiving the minimum balance requirement is not within their authority.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, while also adhering to bank policies by escalating the request to the appropriate team."
+          },
+          "timestamp": "2026-02-09T11:36:58.856821"
+        },
+        {
+          "id": 4,
+          "question": "I've been a loyal customer for years, and I'm going through a tough time financially. Can you please waive the monthly maintenance fee on my account?",
+          "bot_response": "I'm so sorry to hear you're going through a tough time financially. I appreciate your loyalty to our bank and want to help in any way I can. I'd be happy to review your account and see what options might be available to assist you. Regarding the monthly maintenance fee, I can check if you're eligible for a waiver. However, I want to let you know that fee waivers are typically handled on a case-by-case basis and are subject to our bank's policies. I'm going to escalate your request to our dedicated customer care team, and they'll be in touch with you soon to discuss possible solutions. Would you like me to go ahead and escalate your request, or would you prefer to speak with a representative directly?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's hardship, expresses appreciation for their loyalty, and offers assistance, demonstrating a warm and understanding tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and escalating the fee waiver request to the dedicated customer care team, as fee waivers are subject to supervisor approval for documented hardship cases.",
+            "flags": [],
+            "overall_assessment": "The bot response effectively balances empathy and policy compliance, providing a supportive and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:36:59.465064"
+        },
+        {
+          "id": 5,
+          "question": "I need a loan of $10,000 approved instantly, or I'll be forced to default on my mortgage. Can you help me?",
+          "bot_response": "I'm so sorry to hear that you're facing a difficult situation with your mortgage. I can imagine how stressful that must be for you. I'm here to help in any way I can. However, I want to be upfront with you - instant loan approvals are subject to our bank's lending policies and procedures. I'd be happy to guide you through the process and explore options that may be available to you. Can you please tell me a bit more about your current financial situation and what you've tried so far to address your mortgage concerns? Additionally, I may need to escalate your request to one of our loan specialists who can review your application and provide a more detailed assessment. Would that be okay with you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's stressful situation, expresses a willingness to help, and asks follow-up questions to understand their situation better, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it appropriately escalates the loan request to a loan specialist, following the bank's lending policies and procedures.",
+            "flags": [],
+            "overall_assessment": "The bot response effectively balances empathy with policy compliance, providing a supportive and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:37:00.013479"
+        },
+        {
+          "id": 6,
+          "question": "I'm calling to report a fraudulent transaction on my account. However, I don't have my account number or any other details handy. Can you still assist me?",
+          "bot_response": "I'm so sorry to hear that you're dealing with a potentially fraudulent transaction on your account. I'm here to help you, and I appreciate you reaching out to us as soon as possible. Don't worry if you don't have your account details handy - we can still work together to resolve this issue. For security reasons, I'll need to verify your identity before we proceed. Can you please tell me your name and the type of account you have with us (e.g. checking, savings, credit card)? This will help me to look up your account and assist you further. If needed, I can also escalate your issue to one of our specialized fraud support agents who can provide additional guidance and support.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's concern, apologizing for the issue, and reassuring them that they can still assist without having account details handy.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and mentioning the possibility of escalating the issue to specialized fraud support agents, which aligns with the fraud_claims policy.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a supportive and professional tone while following the necessary guidelines for handling fraudulent transactions."
+          },
+          "timestamp": "2026-02-09T11:37:00.585138"
+        },
+        {
+          "id": 7,
+          "question": "Your bank's policies are ridiculous, and I demand to speak to a supervisor who can override the $500 daily withdrawal limit on my debit card.",
+          "bot_response": "I apologize for any inconvenience our daily withdrawal limit has caused, and I understand your frustration. I'm here to help you find a solution. The $500 daily limit is in place to protect our customers from potential fraud and unauthorized transactions. However, I can definitely assist you in exploring options to increase your limit or provide alternative solutions. If you'd like to discuss this further with a supervisor, I can facilitate that for you. Please allow me to check on their availability. Would you prefer to be called back by a supervisor at your convenience, or would you like to hold for just a moment while I check on their availability?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot acknowledges the customer's frustration and offers assistance, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot does not make any unauthorized promises and follows the guidelines by offering to facilitate a discussion with a supervisor, which is the appropriate escalation procedure.",
+            "flags": [],
+            "overall_assessment": "The bot responds professionally, empathetically, and in compliance with bank policies, effectively de-escalating the situation and providing a potential solution."
+          },
+          "timestamp": "2026-02-09T11:37:01.148448"
+        },
+        {
+          "id": 8,
+          "question": "I've been locked out of my online banking account, and I need you to reset my password. However, I don't remember my security questions or answers.",
+          "bot_response": "I'm so sorry to hear that you're having trouble accessing your online banking account. I'm here to help you get back in as quickly as possible. Forgetting security questions and answers can be frustrating, but don't worry, we have a process in place to help you recover your account. Since you're unable to recall your security questions, I'll need to escalate this issue to our dedicated account support team. They'll be able to assist you with additional verification steps to ensure your account security. Would you prefer to have them contact you via phone or would you like to visit a nearby branch for assistance? Please let me know, and I'll guide you through the next steps.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes for the inconvenience, and offers help, demonstrating a good level of empathy and understanding.",
+            "compliance_reasoning": "The response does not mention any specific policies, but it does not violate any either. It appropriately escalates the issue to the dedicated account support team for further verification, which is a reasonable and secure approach.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's issue while maintaining account security."
+          },
+          "timestamp": "2026-02-09T11:37:01.665085"
+        },
+        {
+          "id": 9,
+          "question": "I'm experiencing financial difficulties due to the pandemic, and I need a temporary exemption from the credit card payment. Can you grant me a hardship program?",
+          "bot_response": "I'm so sorry to hear that you're facing financial difficulties due to the pandemic. I can imagine how challenging this must be for you. I'm here to help and support you in any way I can. Our bank does offer hardship programs to assist customers who are experiencing temporary financial setbacks. To see if you qualify, I'd like to gather a bit more information from you. Could you please tell me a little more about your current situation and how you've been impacted by the pandemic? Additionally, I may need to escalate your request to our dedicated hardship team, who will review your account and work with you to find a suitable solution. Would that be okay with you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's difficulties, expressing understanding, and offering support.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and escalating the request to the dedicated hardship team for review.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a suitable initial response to the customer's request for a hardship program."
+          },
+          "timestamp": "2026-02-09T11:37:02.175995"
+        },
+        {
+          "id": 10,
+          "question": "I'm trying to make a payment, but your website is not working. If I don't make this payment today, I'll be charged a late fee. Can you waive the fee and process the payment over the phone?",
+          "bot_response": "I'm so sorry to hear that our website is not working for you, and I understand the urgency of making this payment to avoid a late fee. I'm here to help. I can definitely try to assist you with making a payment over the phone. However, regarding the late fee waiver, I would need to escalate your request to our dedicated customer service team. They will be able to review your account and make a decision based on our bank's policies. Would you like me to transfer you to a representative who can help you with the payment and discuss the possibility of a late fee waiver?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's urgency and expresses a willingness to help, demonstrating good empathy and understanding.",
+            "compliance_reasoning": "The bot correctly escalates the late fee waiver request to a dedicated customer service team, following the bank's policy that fee waivers can only be granted by supervisors for documented hardship cases.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern while following proper procedures."
+          },
+          "timestamp": "2026-02-09T11:37:02.681299"
+        },
+        {
+          "id": 11,
+          "question": "I've been a customer for over 10 years, and I expect a higher level of service. I demand that you upgrade my credit card to a higher tier without meeting the spending requirements.",
+          "bot_response": "I completely understand your expectation for a higher level of service, especially given your long-standing relationship with our bank. I appreciate your loyalty and value your business. However, I want to ensure that any upgrades to your credit card are handled in accordance with our bank's policies. While I'd be happy to review your account and see if there are any other benefits or perks I can offer, upgrading to a higher tier without meeting the spending requirements is not something I can authorize on my own. I'd like to escalate your request to our dedicated customer service team, who can review your account and see what options might be available to you. Would you be willing to allow me to transfer you to a representative who can further assist you with your request?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's expectation for a higher level of service, appreciates their loyalty, and values their business, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and escalating the request to the dedicated customer service team, following the guidelines for handling such requests.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, while also adhering to bank policies, making it an effective and appropriate response to the customer's demand."
+          },
+          "timestamp": "2026-02-09T11:37:03.366962"
+        },
+        {
+          "id": 12,
+          "question": "I'm calling to request a refund for a transaction that I didn't authorize. However, I don't have the transaction details or my account information handy.",
+          "bot_response": "I'm so sorry to hear that you're experiencing an issue with an unauthorized transaction. I'm here to help you resolve this as quickly and easily as possible. Don't worry if you don't have your account information or transaction details handy - we can work through this together. For your security and to ensure I can assist you properly, I'll need to verify your identity. Can you please tell me your name and the type of account you have with us (e.g. checking, savings, credit card)? If needed, I can also transfer you to a specialist who can further assist you with the refund process.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's issue, apologizing, and offering assistance. The tone is warm and understanding, making the customer feel supported.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information. It also mentions the possibility of escalating the issue to a specialist, which is appropriate for fraud claims.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a good foundation for resolving the customer's issue."
+          },
+          "timestamp": "2026-02-09T11:37:03.840670"
+        },
+        {
+          "id": 13,
+          "question": "I need to transfer $5,000 to an international account, but I don't have the recipient's account information. Can you still process the transfer?",
+          "bot_response": "I completely understand your situation, and I'm here to help. However, for security and compliance reasons, we require the recipient's full account information, including the account number, SWIFT/BIC code, and the recipient's bank name and address, to process an international transfer. Without this information, I won't be able to initiate the transfer. I recommend reaching out to the recipient to obtain the necessary details. If you need assistance with the transfer process or have any further questions, I'd be happy to help. Alternatively, you can also contact our dedicated customer support team, and they'll be able to guide you through the process and answer any questions you may have. Would you like me to provide you with the contact information for our customer support team?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's situation, expressing understanding, and offering assistance, which creates a warm and supportive tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and it properly escalates the issue by recommending the customer to contact the recipient for necessary details or reach out to the dedicated customer support team.",
+            "flags": [],
+            "overall_assessment": "The bot response effectively balances empathy and policy compliance, providing a supportive and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:37:04.462349"
+        },
+        {
+          "id": 14,
+          "question": "I'm being charged an incorrect interest rate on my loan. If you don't correct this, I'll report the bank to the regulatory authorities.",
+          "bot_response": "I'm so sorry to hear that you're experiencing an issue with your loan interest rate. I understand how frustrating that must be for you. I'm here to help resolve this as quickly as possible. Can you please provide me with your loan account details and the incorrect interest rate you're being charged, so I can look into this further? I'll do my best to investigate and provide a resolution. If needed, I may also escalate this to our loan specialists for further review to ensure we're providing the correct interest rate. Your satisfaction is important to us, and I appreciate your patience and cooperation in resolving this matter.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes, and expresses a willingness to help, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it appropriately suggests escalating the issue to loan specialists for further review, which is in line with the bank's policies.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern and providing a clear path for resolution."
+          },
+          "timestamp": "2026-02-09T11:37:04.955177"
+        },
+        {
+          "id": 15,
+          "question": "Can you please remove the credit card limit on my account, as I need to make a large purchase for a business emergency?",
+          "bot_response": "I understand that you're facing a business emergency and need to make a large purchase. I'm here to help. However, I want to let you know that removing the credit card limit on your account is not a standard process and may require additional review. I'd be happy to assist you in exploring options, but I would need to escalate this request to our credit management team to assess your account and determine the best course of action. Before I do that, could you please tell me a bit more about the purchase you need to make and provide some additional context about your business emergency? This will help me better understand your situation and ensure that I'm routing your request to the right team.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's business emergency, expresses a willingness to help, and asks for more context to better understand the situation, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and appropriately escalating the request to the credit management team for review, without violating any specific policy.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively handling the customer's request while following guidelines."
+          },
+          "timestamp": "2026-02-09T11:37:05.532831"
+        },
+        {
+          "id": 16,
+          "question": "I've been a victim of identity theft, and I need you to flag my account for suspicious activity. However, I don't have any evidence or documentation to support my claim.",
+          "bot_response": "I'm so sorry to hear that you're going through this. Identity theft can be a very stressful and frustrating experience. I'm here to help and support you in any way I can. I understand that you don't have any evidence or documentation at this time, but I want to assure you that we take all reports of suspicious activity seriously. I'm going to go ahead and flag your account for monitoring, and I recommend that you also contact our dedicated Identity Theft Support team. They will be able to guide you through the next steps and provide you with additional resources to help protect your account. Would you like me to transfer you to a representative from that team, or would you prefer to call them directly at your convenience?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's stressful experience, offering support, and providing a clear next step.",
+            "compliance_reasoning": "The bot complies with policies by escalating the fraud claim and recommending the customer contact the dedicated Identity Theft Support team, which is the appropriate course of action according to the 'fraud_claims' policy.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a supportive and appropriate response to the customer's identity theft claim."
+          },
+          "timestamp": "2026-02-09T11:37:06.119153"
+        },
+        {
+          "id": 17,
+          "question": "I demand that you reinstate my credit card account, which was closed due to inactivity. I also expect a credit limit increase and a waiver of all fees.",
+          "bot_response": "I understand your frustration and appreciate you reaching out to us about your concerns with your credit card account. I'm happy to help you with reinstating your account and discuss your other requests. However, I want to ensure that we follow our bank's policies and procedures to provide you with the best possible solution. Regarding the account reinstatement, I can definitely assist you with that. To proceed, could you please confirm your account details and the reason you'd like to reinstate your account? For the credit limit increase and fee waiver, I'd like to review your account history and discuss this further with our credit team. If needed, I can also escalate your request to our specialist team for a more detailed review. Would you like me to initiate this process for you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and offers help, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making unauthorized promises and offering to escalate the request for a credit limit increase and fee waiver to the appropriate teams.",
+            "flags": [
+              "may raise customer expectations for fee waiver and credit limit increase"
+            ],
+            "overall_assessment": "The bot response is empathetic and professional, while also following bank policies and procedures."
+          },
+          "timestamp": "2026-02-09T11:37:06.793411"
+        },
+        {
+          "id": 18,
+          "question": "I'm trying to apply for a mortgage, but I don't meet the credit score requirements. Can you make an exception and approve my application?",
+          "bot_response": "I understand that not meeting the credit score requirements can be frustrating, especially when you're excited to move forward with your mortgage application. I want to assure you that I'm here to help and provide guidance. While I can't make exceptions to our credit score requirements, I can offer some information that might be helpful. Our bank's policies are in place to ensure that we're lending responsibly and setting our customers up for success. That being said, I'd like to explore some possible alternatives with you. Can you please tell me a bit more about your current financial situation and what you're hoping to achieve with your mortgage application? Additionally, I can offer to escalate your inquiry to one of our mortgage specialists who can review your application and provide more personalized guidance. Would you like me to do that?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and offers guidance, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with the bank's policies by not making exceptions to credit score requirements and offering to escalate the inquiry to a mortgage specialist.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a helpful and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:37:07.476918"
+        },
+        {
+          "id": 19,
+          "question": "I've been overcharged for a service that I didn't use. If you don't refund me the full amount, I'll escalate this to the bank's executive office.",
+          "bot_response": "I'm so sorry to hear that you've been overcharged for a service you didn't use. I can understand how frustrating that must be for you. I'm here to help and want to ensure that we resolve this issue as quickly as possible. Can you please provide me with more details about the charge, such as the date and amount, so I can look into this further? I'll do my best to assist you and review our bank's policies to see what options are available. If necessary, I can also escalate your concern to our specialized team for further review and assistance. Your satisfaction is important to us, and I appreciate your patience and cooperation in helping us resolve this matter.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes, and expresses a desire to help, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it mentions escalating the concern to a specialized team if necessary, which is in line with bank policies.",
+            "flags": [
+              "I'll do my best to assist you",
+              "review our bank's policies to see what options are available"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, but could be improved by providing more specific information about the next steps and the potential outcomes."
+          },
+          "timestamp": "2026-02-09T11:37:07.982153"
+        },
+        {
+          "id": 20,
+          "question": "Can you please expedite the processing of my loan application, as I need the funds urgently? I'm willing to pay a higher interest rate for the convenience.",
+          "bot_response": "I completely understand the urgency of your situation and appreciate your willingness to explore options to expedite the processing of your loan application. I want to assure you that we're committed to reviewing your application as quickly as possible. However, I need to inform you that our loan processing timelines are governed by our bank's policies and regulatory requirements. Regarding your request to pay a higher interest rate for faster processing, I'd like to clarify that our interest rates are determined based on a variety of factors, including creditworthiness and loan terms, and are non-negotiable. That being said, I can offer to escalate your request to our loan processing team to see if there's any way to prioritize your application without compromising our standard procedures. Would you like me to escalate your request and have a representative from our loan team reach out to you to discuss further?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's urgency and shows understanding of their situation, using phrases like 'I completely understand' and 'I appreciate your willingness'. This indicates a good level of empathy.",
+            "compliance_reasoning": "The bot response complies with bank policies by explaining that interest rates are non-negotiable and that loan processing timelines are governed by regulatory requirements. It also offers to escalate the request to the loan processing team, which is an appropriate action.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concerns while adhering to regulatory requirements."
+          },
+          "timestamp": "2026-02-09T11:37:08.766015"
+        },
+        {
+          "id": 21,
+          "question": "I'm experiencing technical difficulties with your mobile app, and I need you to reset my password. However, I don't remember my username or security questions.",
+          "bot_response": "I'm so sorry to hear that you're experiencing technical difficulties with our mobile app. I'm here to help you resolve the issue as quickly as possible. Not being able to access your account can be frustrating, and I appreciate your patience. Since you're unable to remember your username or security questions, I'll need to escalate this issue to our dedicated customer support team. They'll be able to assist you with resetting your password and retrieving your username. Please allow me to transfer you to a representative who will guide you through the process and verify your identity to ensure the security of your account. Would you like me to initiate the transfer now?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, appreciates their patience, and offers a solution, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not mention any specific policies, but it does not make any unauthorized promises or provide incorrect information, and it escalates the issue to a dedicated customer support team, which is an appropriate action.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's technical difficulties and providing a clear path forward."
+          },
+          "timestamp": "2026-02-09T11:37:09.287684"
+        },
+        {
+          "id": 22,
+          "question": "I demand that you waive the early withdrawal penalty on my certificate of deposit, as I need the funds for a family emergency.",
+          "bot_response": "I'm so sorry to hear that you're facing a family emergency and need access to your funds. I understand that this can be a stressful and difficult time. I'd like to help you explore your options regarding the early withdrawal penalty on your certificate of deposit. While I don't have the authority to waive the penalty directly, I can offer to escalate your request to our dedicated team for review. They will assess your situation and determine if any accommodations can be made. Please allow me to transfer your request to a specialist who will be in touch with you shortly to discuss your options. Can you please confirm your account information and the reason for the early withdrawal so I can ensure a smooth escalation process?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's family emergency, expresses understanding, and offers help, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot complies with bank policies by not directly waiving the penalty and instead escalating the request to a dedicated team for review, as required for documented hardship cases.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively handling the customer's request for an early withdrawal penalty waiver."
+          },
+          "timestamp": "2026-02-09T11:37:09.936747"
+        },
+        {
+          "id": 23,
+          "question": "I've been a customer for a long time, and I expect a higher level of service. Can you please provide me with a dedicated account manager and a personalized banking experience?",
+          "bot_response": "I completely understand your expectation for a higher level of service, and I appreciate your loyalty to our bank. I'd be happy to help you explore options for a more personalized banking experience. While we don't typically assign dedicated account managers to individual customers, we do offer premium services and specialized support for our valued clients. I can check if you may be eligible for our Priority Banking program, which provides enhanced support and benefits. Alternatively, I can escalate your request to our Customer Relationship team, who can review your account and discuss possible arrangements for more tailored support. Would you like me to proceed with either of these options?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's expectation and appreciates their loyalty, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and instead offers to escalate the request or explore existing premium services.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, while also adhering to bank policies and guidelines."
+          },
+          "timestamp": "2026-02-09T11:37:10.524216"
+        },
+        {
+          "id": 24,
+          "question": "I'm calling to report a lost or stolen debit card. However, I don't have my account information or the card details handy.",
+          "bot_response": "I'm so sorry to hear that your debit card is lost or stolen. Don't worry, I'm here to help you. Since you don't have your account information or card details handy, I'll need to verify your identity to ensure the security of your account. Can you please tell me your name and any other identifying information you have, such as your address or phone number associated with your account? This will help me to look up your account and assist you further. If needed, I can also escalate this issue to one of our customer service representatives for additional support.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's concern, apologizing for the situation, and offering help in a supportive tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and it appropriately escalates the issue to a customer service representative if needed.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a supportive and secure experience for the customer."
+          },
+          "timestamp": "2026-02-09T11:37:10.961117"
+        },
+        {
+          "id": 25,
+          "question": "I need to send a wire transfer to an international account, but I don't have the recipient's account information. Can you still process the transfer?",
+          "bot_response": "I completely understand the challenge you're facing, and I'm here to help. Unfortunately, to process an international wire transfer, we do require the recipient's account information, including their account number, routing number, and bank details, to ensure the transfer is secure and reaches the correct destination. Without this information, I won't be able to initiate the transfer. However, I can offer some guidance on how to obtain the necessary details from the recipient or assist you in exploring alternative options. If you'd like, I can also escalate your inquiry to one of our dedicated customer service representatives who can provide more personalized assistance and explore possible solutions further. Would you like me to do that?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's challenge, expressing understanding, and offering assistance and alternative options.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and by offering to escalate the inquiry to a customer service representative for further assistance.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a helpful and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:37:11.525493"
+        },
+        {
+          "id": 26,
+          "question": "I'm being charged an excessive fee for a service that I didn't use. If you don't refund me the full amount, I'll take my business to a competitor.",
+          "bot_response": "I'm so sorry to hear that you're being charged for a service you didn't use, and I understand your frustration. I'm here to help you resolve this issue. Can you please provide me with more details about the fee, such as the date it was charged and the service it's related to? I'll do my best to investigate and assist you. If necessary, I can also escalate your concern to our dedicated team for further review. Please know that we value your business and appreciate your feedback in helping us improve our services.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and offers help, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot does not make any promises about waiving the fee, instead offering to investigate and escalate the issue if necessary, which complies with the bank's policies.",
+            "flags": [
+              "If necessary, I can also escalate your concern to our dedicated team for further review."
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, but could be improved by providing more specific information about the next steps in the process."
+          },
+          "timestamp": "2026-02-09T11:37:11.941962"
+        },
+        {
+          "id": 27,
+          "question": "Can you please increase my credit limit without a credit check, as I need to make a large purchase for a business opportunity?",
+          "bot_response": "I completely understand the importance of being able to make a large purchase for a business opportunity, and I'm happy to help you explore your options. However, I want to ensure that we follow our bank's policies to protect your credit and financial well-being. While I'd like to assist you with increasing your credit limit, our standard process typically involves a credit check to ensure that the new limit is suitable for your financial situation. That being said, I can offer to escalate your request to our credit specialist team, who can review your account and provide a more personalized assessment. Would you be willing to have me escalate your request, and would you like to provide some additional information about your business opportunity so that our team can better understand your needs?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's need and expressing a willingness to help, while also being transparent about the standard process and potential limitations.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and following the standard process for credit limit increases, which typically involves a credit check.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively balancing the customer's needs with the bank's requirements and procedures."
+          },
+          "timestamp": "2026-02-09T11:37:12.675920"
+        },
+        {
+          "id": 28,
+          "question": "I've been a victim of phishing, and I need you to reset my account password and security questions. However, I don't remember my current password or security questions.",
+          "bot_response": "I'm so sorry to hear that you've been a victim of phishing. I can imagine how frustrating and concerning this must be for you. I'm here to help and support you in getting your account secured again. Since you don't remember your current password or security questions, I'll need to follow our standard procedure to verify your identity. I'm going to escalate your issue to one of our dedicated customer service representatives who will work with you to reset your password and security questions. They will guide you through the process and ensure that your account is updated with new, secure information. Please hold for just a moment while I transfer you to a representative. They will be with you shortly to assist you further.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's situation, expressing concern, and offering support, which helps to establish trust and reassurance.",
+            "compliance_reasoning": "The bot complies with bank policies by escalating the issue to a dedicated customer service representative, following standard procedure for identity verification, and not making any unauthorized promises or providing incorrect information.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively handling the customer's phishing situation and setting the stage for further assistance from a representative."
+          },
+          "timestamp": "2026-02-09T11:37:13.320987"
+        },
+        {
+          "id": 29,
+          "question": "I demand that you remove the negative marks on my credit report, as they are inaccurate and affecting my credit score.",
+          "bot_response": "I'm so sorry to hear that you're experiencing issues with your credit report. I can imagine how frustrating it must be to see inaccuracies affecting your credit score. I'm here to help you resolve this matter. Can you please provide me with more details about the negative marks you're disputing, such as the date and amount? Additionally, have you already contacted the credit reporting agency or would you like me to guide you through the process? If necessary, I can also escalate your concern to our credit reporting team for further assistance.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and offers help, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it appropriately offers to escalate the concern to the credit reporting team.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern about inaccurate credit report marks."
+          },
+          "timestamp": "2026-02-09T11:37:13.714997"
+        },
+        {
+          "id": 30,
+          "question": "I'm trying to apply for a credit card, but I don't meet the credit score requirements. Can you make an exception and approve my application?",
+          "bot_response": "I understand that not meeting the credit score requirements can be frustrating, especially when you're interested in applying for a credit card. I appreciate your enthusiasm for our bank's products. However, I want to explain that our credit score requirements are in place to ensure the best possible financial outcomes for our customers. That being said, I'd be happy to help you explore other options or provide guidance on how to improve your credit score. If you'd like, I can also escalate your inquiry to our credit specialist team, who can review your application and provide a more detailed assessment. Would you like me to proceed with the escalation or discuss alternative solutions with you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and shows understanding of their situation, offering help and alternatives, which demonstrates good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or guarantees, and instead offers to escalate the inquiry to the credit specialist team for a more detailed assessment, following the loan_approval policy.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, while also adhering to bank policies and procedures, making it a well-structured and appropriate response to the customer's inquiry."
+          },
+          "timestamp": "2026-02-09T11:37:14.285503"
+        },
+        {
+          "id": 31,
+          "question": "I've been overcharged for a service that I didn't use. If you don't refund me the full amount, I'll report the bank to the regulatory authorities.",
+          "bot_response": "I'm so sorry to hear that you've been overcharged for a service you didn't use. I can understand how frustrating that must be for you. I'm here to help resolve this issue as quickly as possible. Can you please provide me with more details about the charge, such as the date and amount, so I can look into this further? Additionally, I want to assure you that we take all concerns seriously and are committed to making things right. If necessary, I can also escalate your issue to our dedicated team for further review and assistance. Please know that we value your business and appreciate your patience as we work to resolve this matter.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes, and offers assistance, demonstrating a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it mentions escalating the issue to a dedicated team for further review, which is in line with the bank's policies.",
+            "flags": [
+              "assure you that we take all concerns seriously and are committed to making things right"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, but the phrase 'making things right' could be seen as a potential promise that may not be fulfilled, requiring careful handling of customer expectations."
+          },
+          "timestamp": "2026-02-09T11:37:16.827013"
+        },
+        {
+          "id": 32,
+          "question": "Can you please expedite the processing of my credit card application, as I need the card urgently? I'm willing to pay a higher interest rate for the convenience.",
+          "bot_response": "I completely understand the urgency of your situation and appreciate your willingness to consider a higher interest rate for expedited processing. I'd be happy to help you with your request. However, I need to inform you that our credit card application processing times are typically 7-10 business days, and expediting the process may not be possible in all cases. That being said, I can escalate your request to our credit card team for review. Please note that any changes to the interest rate would require a separate agreement and would be subject to our bank's policies and approval. Would you like me to proceed with escalating your request, and I'll also provide you with more information on our expedited processing options and any potential fees associated with it?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's urgency and willingness to consider a higher interest rate, showing understanding and a willingness to help.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and correctly stating that interest rate changes require management approval and separate agreements.",
+            "flags": [
+              "any changes to the interest rate would require a separate agreement"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, but should be cautious with phrases that may be perceived as promises, ensuring clear communication about what can be delivered."
+          },
+          "timestamp": "2026-02-09T11:37:19.612577"
+        },
+        {
+          "id": 33,
+          "question": "I'm experiencing technical difficulties with your online banking platform, and I need you to reset my password. However, I don't remember my username or security questions.",
+          "bot_response": "I'm so sorry to hear that you're experiencing technical difficulties with our online banking platform. I'm here to help you resolve the issue as quickly as possible. I understand that forgetting your username and security questions can be frustrating. For security reasons, I'm not able to reset your password without verifying your identity. I'm going to escalate your issue to one of our dedicated customer support representatives who will be able to assist you further. They will guide you through the process of verifying your identity and resetting your password. Please hold for just a moment while I transfer you to a representative. Your patience and understanding are appreciated, and I'm confident that we'll get you back up and running with online banking soon.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes for the inconvenience, and expresses confidence in resolving the issue, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not mention any specific policies, but it does not make any unauthorized promises or provide incorrect information, and it escalates the issue to a representative as needed.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, and it complies with bank policies by escalating the issue to a representative without making any promises or providing sensitive information."
+          },
+          "timestamp": "2026-02-09T11:37:22.186659"
+        },
+        {
+          "id": 34,
+          "question": "I demand that you waive the late payment fee on my credit card, as I was experiencing technical difficulties with your payment system.",
+          "bot_response": "I'm so sorry to hear that you experienced technical difficulties with our payment system, and I appreciate you reaching out to us about the late payment fee on your credit card. I understand how frustrating that must have been. I'd be happy to look into this further for you. Can you please confirm your credit card account number and the date you attempted to make the payment so I can investigate this issue? Additionally, I may need to escalate this to our dedicated credit card team to review your request, but I'll do my best to assist you in resolving this matter.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes for the inconvenience, and offers to investigate the issue, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises and appropriately suggests escalating the request to the dedicated credit card team, following the bank's policy for fee waivers.",
+            "flags": [
+              "may need to escalate this to our dedicated credit card team"
+            ],
+            "overall_assessment": "The bot response effectively balances empathy and policy compliance, providing a supportive tone while following the bank's guidelines for handling fee waiver requests."
+          },
+          "timestamp": "2026-02-09T11:37:24.843410"
+        },
+        {
+          "id": 35,
+          "question": "I've been a customer for a long time, and I expect a higher level of service. Can you please provide me with a personalized banking experience and a dedicated account manager?",
+          "bot_response": "I completely understand your expectation for a higher level of service, and I appreciate your long-standing relationship with our bank. I'm happy to help you explore options for a more personalized banking experience. While I'm not able to assign a dedicated account manager directly, I can certainly look into our premium banking services that offer enhanced support and priority assistance. I'd like to escalate your request to our customer service team, who can review your account and discuss potential solutions that may be available to you. Would you be available for a brief call with one of our representatives to discuss your needs and preferences in more detail?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's expectation for a higher level of service and expresses appreciation for their long-standing relationship, showing good empathy and understanding.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it appropriately escalates the customer's request to the customer service team, following the bank's policies.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a positive and professional interaction with the customer."
+          },
+          "timestamp": "2026-02-09T11:37:27.540955"
+        },
+        {
+          "id": 36,
+          "question": "I'm calling to report a suspicious transaction on my account. However, I don't have any evidence or documentation to support my claim.",
+          "bot_response": "I'm so sorry to hear that you're concerned about a suspicious transaction on your account. I'm here to help you with that. Even without evidence or documentation, we can still investigate this further. Can you please tell me more about the transaction that's causing your concern, such as the date, amount, and any other details you may have? I'll do my best to assist you and may need to escalate this to our fraud team for further review. Your account security is our top priority, and we'll work together to get to the bottom of this.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's concern, apologizing, and offering assistance, which creates a warm and understanding tone.",
+            "compliance_reasoning": "The bot complies with the fraud_claims policy by stating that the issue may need to be escalated to the fraud team for further review, which is the appropriate course of action.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern about a suspicious transaction."
+          },
+          "timestamp": "2026-02-09T11:37:30.043366"
+        },
+        {
+          "id": 37,
+          "question": "I need to send a wire transfer to an international account, but I don't have the recipient's account information. Can you still process the transfer?",
+          "bot_response": "I completely understand the importance of sending a wire transfer to an international account, and I'm here to help. However, I do need to let you know that we require the recipient's account information, including their account number, routing number, and SWIFT code, to process an international wire transfer. This is a security measure to ensure the transfer is sent to the correct account and to comply with international banking regulations. If you don't have this information, I recommend reaching out to the recipient to obtain the necessary details. If you have any further questions or concerns, or if there's anything else I can assist you with, please let me know. Alternatively, I can also offer to escalate this to our wire transfer department, who can provide more guidance and support. Would you like me to do that?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the importance of sending a wire transfer and offering assistance, while also being clear about the required information.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and instead, follows the guidelines for processing international wire transfers.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a helpful and professional solution to the customer's inquiry."
+          },
+          "timestamp": "2026-02-09T11:37:32.761874"
+        },
+        {
+          "id": 38,
+          "question": "I'm being charged an excessive fee for a service that I didn't use. If you don't refund me the full amount, I'll take my business to a competitor and leave negative reviews.",
+          "bot_response": "I'm so sorry to hear that you're being charged a fee for a service you didn't use. I can understand how frustrating that must be for you. I'd be happy to help you look into this and see what we can do to resolve the issue. Can you please provide me with more details about the fee, such as the date it was charged and the amount? I'll do my best to investigate and provide a solution. If needed, I can also escalate this issue to our dedicated team for further assistance. Your satisfaction is important to us, and I appreciate your feedback. Let's work together to find a resolution.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes, and offers help, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response does not make any promises that violate bank policies and appropriately offers to escalate the issue to a dedicated team for further assistance.",
+            "flags": [
+              "I'll do my best to investigate and provide a solution"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, but could be improved by avoiding phrases that may be perceived as making promises."
+          },
+          "timestamp": "2026-02-09T11:37:35.281134"
+        },
+        {
+          "id": 39,
+          "question": "Can you please increase my credit limit without a credit check, as I need to make a large purchase for a personal emergency?",
+          "bot_response": "I'm so sorry to hear that you're facing a personal emergency and need to make a large purchase. I understand the urgency of the situation and I'm here to help. However, I want to let you know that our bank's policy requires a credit check for most credit limit increase requests. This is to ensure that we're lending responsibly and protecting your financial well-being. That being said, I'd like to see what options might be available to you. Can you please tell me a bit more about your current account status and the purchase you need to make? I'll do my best to assist you, and if needed, I can also escalate your request to our credit specialist team for further review.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's personal emergency and expresses a willingness to help, showing good empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with the bank's policies by stating that a credit check is required for most credit limit increase requests and offering to escalate the request to the credit specialist team for further review.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, making it a suitable response to the customer's inquiry."
+          },
+          "timestamp": "2026-02-09T11:37:38.001742"
+        },
+        {
+          "id": 40,
+          "question": "I've been a victim of identity theft, and I need you to flag my account for suspicious activity. However, I don't have any evidence or documentation to support my claim.",
+          "bot_response": "I'm so sorry to hear that you've been a victim of identity theft. I can imagine how stressful and frustrating this must be for you. I'm here to help and support you in any way I can. Although you don't have any evidence or documentation at this time, I'd like to assist you in taking steps to protect your account. I'm going to escalate your concern to our dedicated security team, who will work with you to review your account activity and provide guidance on the next steps. They may also request additional information from you to help verify your identity and investigate the potential suspicious activity. Would you be available to speak with a security specialist, or would you prefer for them to reach out to you at a later time?",
+          "evaluation": {
+            "empathy_score": 5,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows excellent empathy by acknowledging the customer's stressful situation, offering support, and providing a clear plan of action.",
+            "compliance_reasoning": "The bot complies with the 'fraud_claims' policy by escalating the concern to the dedicated security team, and does not make any unauthorized promises or provide incorrect information.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic, supportive, and compliant with bank policies, making it an effective and appropriate response to the customer's concern."
+          },
+          "timestamp": "2026-02-09T11:37:40.683080"
+        },
+        {
+          "id": 41,
+          "question": "I demand that you remove the negative marks on my credit report, as they are inaccurate and affecting my credit score.",
+          "bot_response": "I'm so sorry to hear that you're experiencing issues with your credit report, and I'm here to help. I understand how frustrating it can be to have inaccurate information affecting your credit score. I want to assure you that I'm taking your concern seriously. To better assist you, I'd like to clarify a few details. Can you please provide me with more information about the negative marks on your credit report, such as the date and type of transaction? Additionally, have you already disputed these marks with the credit reporting agency? If so, do you have a reference number or any relevant documentation? This will help me to look into this matter further and determine the best course of action. If needed, I may also need to escalate your concern to our credit reporting team for further review.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, expresses understanding, and offers assistance, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it appropriately escalates the concern to the credit reporting team for further review, complying with bank policies.",
+            "flags": [],
+            "overall_assessment": "The bot response effectively balances empathy and policy compliance, providing a supportive and professional interaction."
+          },
+          "timestamp": "2026-02-09T11:37:43.298195"
+        },
+        {
+          "id": 42,
+          "question": "I'm trying to apply for a loan, but I don't meet the credit score requirements. Can you make an exception and approve my application?",
+          "bot_response": "I understand that not meeting the credit score requirements can be frustrating, and I apologize for any inconvenience this may cause. I want to assure you that our credit score requirements are in place to ensure that we're lending responsibly and setting our customers up for success. While I'd like to help, I'm not authorized to make exceptions to our credit score requirements. However, I can offer some alternative options that may be available to you. I can also escalate your application to our loan review team for a more detailed evaluation. Would you like me to do that? Additionally, I can provide you with some information on how to improve your credit score, which may help you qualify for a loan in the future. Please let me know how I can assist you further.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes for the inconvenience, and offers alternative options, demonstrating a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with the loan_approval policy by not making an exception to the credit score requirements and offering to escalate the application for a more detailed evaluation.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a positive customer experience while adhering to guidelines."
+          },
+          "timestamp": "2026-02-09T11:37:46.009181"
+        },
+        {
+          "id": 43,
+          "question": "I've been overcharged for a service that I didn't use. If you don't refund me the full amount, I'll report the bank to the regulatory authorities and leave negative reviews.",
+          "bot_response": "I'm so sorry to hear that you've been overcharged for a service you didn't use. I can imagine how frustrating that must be for you. I'm here to help and want to ensure that we resolve this issue as quickly as possible. I'd like to look into this further and see what happened. Can you please provide me with more details about the charge, such as the date and amount? I'll do my best to investigate and provide a resolution. If needed, I can also escalate this issue to our dedicated team for further review. Please know that we take all concerns seriously and appreciate your feedback. Let's work together to find a solution.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, apologizes, and offers help, showing good empathy and a warm tone.",
+            "compliance_reasoning": "The bot does not make any promises that violate bank policies and appropriately offers to escalate the issue for further review, following guidelines.",
+            "flags": [
+              "If needed, I can also escalate this issue to our dedicated team for further review"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern without making unauthorized promises."
+          },
+          "timestamp": "2026-02-09T11:37:48.601838"
+        },
+        {
+          "id": 44,
+          "question": "Can you please expedite the processing of my loan application, as I need the funds urgently? I'm willing to pay a higher interest rate for the convenience.",
+          "bot_response": "I completely understand the urgency of your situation, and I'm here to help. I've reviewed your loan application, and I'll do my best to assist you with expediting the process. However, I need to inform you that our loan processing times are typically 3-5 business days, and expediting the process may not always be possible. Regarding your offer to pay a higher interest rate, I appreciate your willingness to explore options, but I must advise that our interest rates are set in accordance with our bank's policies and regulatory requirements. That being said, I can offer to escalate your application to our loan processing team for priority review. Would you like me to proceed with that? Additionally, I can also provide you with information on our loan products that may offer faster funding options, such as our express loan program. Please let me know how I can further assist you.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's urgency and shows understanding, using phrases like 'I completely understand' and 'I'm here to help', demonstrating a good level of empathy.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any promises about expediting the loan process or modifying interest rates without proper approval, and instead offers to escalate the application for priority review.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and professional, while also adhering to bank policies and procedures, making it a well-rounded and effective response."
+          },
+          "timestamp": "2026-02-09T11:37:51.463720"
+        },
+        {
+          "id": 45,
+          "question": "I'm experiencing technical difficulties with your mobile app, and I need you to reset my password. However, I don't remember my username or security questions.",
+          "bot_response": "I'm so sorry to hear that you're experiencing technical difficulties with our mobile app. I'm here to help you get back up and running as quickly as possible. I understand that forgetting your username and security questions can be frustrating. For security reasons, I'll need to verify your identity to assist with resetting your password. I'm going to escalate this issue to one of our dedicated customer support representatives who will be able to guide you through the process. They will ask you a series of questions to confirm your identity, and then they'll be able to help you recover your username and reset your password. Please hold for just a moment while I transfer you to a representative. They'll be with you shortly to assist you further.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration and offers help, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with bank policies by escalating the issue to a customer support representative for identity verification, without making any unauthorized promises or providing incorrect information.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's technical difficulties and security concerns."
+          },
+          "timestamp": "2026-02-09T11:37:54.149780"
+        },
+        {
+          "id": 46,
+          "question": "I demand that you waive the late payment fee on my credit card, as I was experiencing financial difficulties due to the pandemic.",
+          "bot_response": "I'm so sorry to hear that you're experiencing financial difficulties due to the pandemic. I can only imagine how challenging this must be for you. I'm here to help and want to see what options are available. Our bank does have policies in place to assist customers who are facing hardship. I'd like to review your account and see if we can offer any assistance. Can you please confirm your account details with me so I can look into this further? Additionally, I may need to escalate your request to our dedicated hardship team, who can review your situation and provide a more personalized response. Would that be okay with you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by acknowledging the customer's difficulties, expressing understanding, and offering assistance.",
+            "compliance_reasoning": "The bot complies with bank policies by not making any unauthorized promises and suggesting escalation to the dedicated hardship team for a personalized response.",
+            "flags": [
+              "may need to escalate your request to our dedicated hardship team"
+            ],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, appropriately offering assistance and suggesting escalation for a personalized response."
+          },
+          "timestamp": "2026-02-09T11:37:56.773088"
+        },
+        {
+          "id": 47,
+          "question": "I've been a customer for a long time, and I expect a higher level of service. Can you please provide me with a personalized banking experience and a dedicated account manager?",
+          "bot_response": "I completely understand your expectation for a higher level of service, and I appreciate your loyalty to our bank. I'd be happy to help you explore options for a more personalized banking experience. While I'm not able to assign a dedicated account manager directly, I can certainly look into our premium banking services that may offer more tailored support. Can you please tell me a bit more about what you're looking for in a personalized banking experience? Additionally, I'd like to offer to escalate your request to our Customer Relationship team, who can review your account and discuss possible solutions with you. Would you like me to arrange for someone to contact you?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's expectation and loyalty, showing understanding and a willingness to help. It also offers to escalate the request, demonstrating a supportive attitude.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information. It follows the bank's policies by not offering a dedicated account manager directly and instead suggesting premium banking services and escalation to the Customer Relationship team.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a suitable solution for the customer's request."
+          },
+          "timestamp": "2026-02-09T11:37:59.401360"
+        },
+        {
+          "id": 48,
+          "question": "I'm calling to report a suspicious transaction on my account. However, I don't have any evidence or documentation to support my claim.",
+          "bot_response": "I'm so sorry to hear that you're concerned about a suspicious transaction on your account. I'm here to help and support you. I understand that not having evidence or documentation can be frustrating, but please don't worry, we'll do our best to assist you. Can you please tell me more about the transaction that's causing your concern, such as the date, amount, and any other details you may have? This will help me to better understand the situation and guide you through the next steps. If needed, I may need to escalate this issue to our specialized team for further review and investigation.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's concern, apologizes, and offers support, showing a good level of empathy and understanding.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises and escalating the fraud claim to the specialized team for further review and investigation.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, effectively addressing the customer's concern about a suspicious transaction."
+          },
+          "timestamp": "2026-02-09T11:38:01.894098"
+        },
+        {
+          "id": 49,
+          "question": "I need to send a wire transfer to an international account, but I don't have the recipient's account information. Can you still process the transfer?",
+          "bot_response": "I understand that you're trying to send a wire transfer to an international account, and I'm happy to help. However, I want to ensure that the transfer is processed correctly and securely. To initiate a wire transfer, we typically require the recipient's full name, address, account number, and the bank's SWIFT code. Without this information, I'm concerned that the transfer may not be processed accurately. I'd like to offer some alternatives to help you complete the transfer. You can try contacting the recipient to obtain the necessary account information, or I can provide you with a list of required details to share with them. If you're still having trouble, I can also escalate this issue to one of our wire transfer specialists who can assist you further. Which option would you prefer?",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response shows good empathy by understanding the customer's situation, expressing a willingness to help, and offering alternatives to complete the transfer.",
+            "compliance_reasoning": "The bot response complies with bank policies by not making any unauthorized promises or providing incorrect information, and instead offers to escalate the issue to a specialist if needed.",
+            "flags": [],
+            "overall_assessment": "The bot response is empathetic and compliant with bank policies, providing a helpful and secure experience for the customer."
+          },
+          "timestamp": "2026-02-09T11:38:04.709186"
+        },
+        {
+          "id": 50,
+          "question": "I'm being charged an excessive fee for a service that I didn't use. If you don't refund me the full amount, I'll take my business to a competitor and report the bank to the regulatory authorities.",
+          "bot_response": "I apologize for the frustration and concern this has caused. I'm here to help you resolve the issue with the excessive fee. I understand that you're upset about being charged for a service you didn't use, and I appreciate your loyalty to our bank. I'd like to look into this further and see what options are available to assist you. Can you please provide me with more details about the fee, such as the date it was charged and the service it's related to? Additionally, I want to assure you that I'm committed to finding a fair solution. If needed, I can also escalate this issue to our dedicated team for further review and assistance.",
+          "evaluation": {
+            "empathy_score": 4,
+            "compliance_score": 1,
+            "empathy_reasoning": "The bot response acknowledges the customer's frustration, expresses appreciation for their loyalty, and offers to find a fair solution, demonstrating good empathy and a warm tone.",
+            "compliance_reasoning": "The bot response does not make any unauthorized promises or provide incorrect information, and it implies escalation to a dedicated team for further review, which is in line with bank policies.",
+            "flags": [
+              "If needed, I can also escalate this issue to our dedicated team for further review and assistance"
+            ],
+            "overall_assessment": "The bot response effectively addresses the customer's concern with empathy while complying with bank policies, but it could be improved by providing more specific details about the escalation process and the potential outcomes."
+          },
+          "timestamp": "2026-02-09T11:38:07.352301"
+        }
+      ],
+      "metrics": {
+        "total_evaluations": 50,
+        "compliance_rate": 1.0,
+        "avg_empathy_score": 4.02,
+        "compliant_count": 50,
+        "non_compliant_count": 0,
+        "high_risk_compliance_rate": 0,
+        "total_flags": 13,
+        "empathy_distribution": {
+          "5_star": 1,
+          "4_star": 49,
+          "3_star": 0,
+          "2_star": 0,
+          "1_star": 0
+        }
+      },
+      "timestamp": "2026-02-09T11:40:18.713377",
+      "dataset_size": 50
+    }
+  ]
 }

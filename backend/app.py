@@ -32,6 +32,40 @@ def home():
         }
     })
 
+@app.route('/api/chat', methods=['POST'])
+def chat():
+    """Handle chatbot conversation with real-time evaluation"""
+    try:
+        data = request.get_json()
+        message = data.get('message', '')
+        
+        if not message:
+            return jsonify({
+                'success': False,
+                'error': 'No message provided'
+            }), 400
+        
+        # Generate bot response
+        print(f"User: {message}")
+        bot_response = eval_runner.simulate_chatbot_response(message)
+        print(f"Bot: {bot_response}")
+        
+        # Evaluate the response
+        evaluation = eval_runner.evaluator.evaluate_response(message, bot_response)
+        
+        return jsonify({
+            'success': True,
+            'response': bot_response,
+            'evaluation': evaluation
+        })
+    
+    except Exception as e:
+        print(f"Chat error: {e}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
 @app.route('/api/generate-dataset', methods=['GET'])
 def generate_dataset():
     """Generate synthetic adversarial dataset"""
