@@ -1,8 +1,8 @@
 # Compliance Monitor for Customer Support Chatbot
 
-##   Run with Groq API!
+##   Run with Groq API (OPTIONS FOR OTHER TOO)
 
-An AI-powered evaluation system that monitors chatbot responses for policy compliance and empathy. ** supports FREE Groq API**
+An AI-powered evaluation system that monitors chatbot responses for policy compliance and empathy. supports FREE Groq API
 
 ## Overview
 
