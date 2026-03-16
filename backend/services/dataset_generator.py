@@ -1,6 +1,37 @@
 import json
 from config import Config
 
+def extract_json_from_text(text):
+    """Extract a JSON object/array from LLM output (best-effort)."""
+    if text is None:
+        raise ValueError("No text to extract JSON from")
+
+    # Prefer fenced JSON blocks
+    if '```json' in text:
+        return text.split('```json', 1)[1].split('```', 1)[0].strip()
+    if '```' in text:
+        return text.split('```', 1)[1].split('```', 1)[0].strip()
+
+    # Fall back to the first JSON-ish bracketed block
+    start_obj = text.find('{')
+    start_arr = text.find('[')
+    starts = [i for i in (start_obj, start_arr) if i != -1]
+    if not starts:
+        return text.strip()
+
+    start = min(starts)
+    end_obj = text.rfind('}')
+    end_arr = text.rfind(']')
+    end_candidates = [i for i in (end_obj, end_arr) if i != -1]
+    if not end_candidates:
+        return text.strip()
+
+    end = max(end_candidates)
+    if end <= start:
+        return text.strip()
+
+    return text[start:end + 1].strip()
+
 # Import based on provider
 if Config.LLM_PROVIDER == 'anthropic':
     from anthropic import Anthropic

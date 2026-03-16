@@ -1,50 +1,77 @@
 #!/usr/bin/env python3
 """
-Test script to validate Compliance Monitor installation
-Run this after setup to ensure everything is working
+test_installation.py
+
+Validates the Compliance Monitor installation for whichever LLM provider
+is configured in .env (groq / anthropic / openai).
+Run from the backend/ directory:  python3 test_installation.py
 """
 
 import sys
 import os
 
+
+# ---------------------------------------------------------------------------
+
 def test_python_version():
-    """Test Python version"""
-    print("🔍 Testing Python version...")
-    version = sys.version_info
-    if version.major >= 3 and version.minor >= 8:
-        print(f"✅ Python {version.major}.{version.minor}.{version.micro} - OK")
+    print("Testing Python version...")
+    v = sys.version_info
+    if v.major >= 3 and v.minor >= 8:
+        print(f"  PASS  Python {v.major}.{v.minor}.{v.micro}")
         return True
-    else:
-        print(f"❌ Python {version.major}.{version.minor}.{version.micro} - Need 3.8+")
+    print(f"  FAIL  Python {v.major}.{v.minor}.{v.micro} — need 3.8+")
+    return False
+
+
+def test_core_imports():
+    print("\nTesting core package imports...")
+    core = {
+        'flask':       'Flask',
+        'flask_cors':  'Flask-CORS',
+        'dotenv':      'python-dotenv',
+        'requests':    'requests',
+    }
+    ok = True
+    for pkg, label in core.items():
+        try:
+            __import__(pkg)
+            print(f"  PASS  {label}")
+        except ImportError:
+            print(f"  FAIL  {label} — run: pip install {pkg}")
+            ok = False
+    return ok
+
+
+def test_provider_import():
+    """Check that the SDK for the configured provider is installed."""
+    print("\nTesting LLM provider SDK...")
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    provider = os.getenv('LLM_PROVIDER', 'groq').lower()
+    sdk_map  = {
+        'groq':      ('groq',      'groq'),
+        'anthropic': ('anthropic', 'anthropic'),
+        'openai':    ('openai',    'openai'),
+    }
+
+    if provider not in sdk_map:
+        print(f"  FAIL  Unknown LLM_PROVIDER={provider!r}")
         return False
 
-def test_imports():
-    """Test required package imports"""
-    print("\n🔍 Testing package imports...")
-    packages = {
-        'flask': 'Flask',
-        'flask_cors': 'Flask-CORS',
-        'anthropic': 'Anthropic SDK',
-        'dotenv': 'Python-dotenv',
-        'requests': 'Requests'
-    }
-    
-    all_ok = True
-    for package, name in packages.items():
-        try:
-            __import__(package)
-            print(f"✅ {name} - Installed")
-        except ImportError:
-            print(f"❌ {name} - Missing")
-            all_ok = False
-    
-    return all_ok
+    module, install_name = sdk_map[provider]
+    try:
+        __import__(module)
+        print(f"  PASS  {module} SDK (provider={provider})")
+        return True
+    except ImportError:
+        print(f"  FAIL  {module} not installed — run: pip install {install_name}")
+        return False
+
 
 def test_file_structure():
-    """Test file structure"""
-    print("\n🔍 Testing file structure...")
-    
-    required_files = [
+    print("\nTesting file structure...")
+    required = [
         'app.py',
         'config.py',
         'requirements.txt',
@@ -52,119 +79,120 @@ def test_file_structure():
         'services/dataset_generator.py',
         'services/eval_runner.py',
         'data/eval_results.json',
-        'data/synthetic_dataset.json'
+        'data/synthetic_dataset.json',
     ]
-    
-    all_ok = True
-    for file_path in required_files:
-        if os.path.exists(file_path):
-            print(f"✅ {file_path} - Found")
+    ok = True
+    for path in required:
+        if os.path.exists(path):
+            print(f"  PASS  {path}")
         else:
-            print(f"❌ {file_path} - Missing")
-            all_ok = False
-    
-    return all_ok
+            print(f"  MISS  {path} — not found (may be auto-created on first run)")
+            # data/ files missing is a warning, not a hard failure
+            if not path.startswith('data/'):
+                ok = False
+    return ok
 
-def test_env_file():
-    """Test .env file"""
-    print("\n🔍 Testing environment configuration...")
-    
-    if os.path.exists('.env'):
-        print("✅ .env file - Found")
-        
-        # Check if API key is set
-        from dotenv import load_dotenv
-        load_dotenv()
-        
-        api_key = os.getenv('ANTHROPIC_API_KEY', '')
-        if api_key and api_key != 'your_api_key_here':
-            print("✅ ANTHROPIC_API_KEY - Configured")
-            return True
-        else:
-            print("⚠️  ANTHROPIC_API_KEY - Not set or using placeholder")
-            print("   Edit .env and add your actual API key")
-            return False
+
+def test_env_config():
+    """Check that the active provider's API key is configured."""
+    print("\nTesting environment configuration...")
+    from dotenv import load_dotenv
+    load_dotenv()
+
+    if not os.path.exists('.env'):
+        print("  FAIL  .env file not found — run: cp .env.example .env")
+        return False
+    print("  PASS  .env file found")
+
+    provider = os.getenv('LLM_PROVIDER', 'groq').lower()
+    key_map  = {
+        'groq':      'GROQ_API_KEY',
+        'anthropic': 'ANTHROPIC_API_KEY',
+        'openai':    'OPENAI_API_KEY',
+    }
+    env_name = key_map.get(provider, 'GROQ_API_KEY')
+    value    = os.getenv(env_name, '')
+
+    if value and value not in ('your_api_key_here', 'your_groq_key_here',
+                                'your_anthropic_key_here', 'your_openai_key_here'):
+        print(f"  PASS  {env_name} configured (provider={provider})")
+        return True
     else:
-        print("❌ .env file - Not found")
-        print("   Run: cp .env.example .env")
-        print("   Then add your Anthropic API key")
+        print(f"  WARN  {env_name} is not set or still a placeholder")
+        print(f"        Edit .env and add your {provider} API key")
         return False
 
+
 def test_syntax():
-    """Test Python syntax"""
-    print("\n🔍 Testing Python syntax...")
-    
-    files_to_test = [
+    print("\nTesting Python syntax...")
+    files = [
         'app.py',
         'config.py',
         'models/evaluator.py',
         'services/dataset_generator.py',
-        'services/eval_runner.py'
+        'services/eval_runner.py',
     ]
-    
-    all_ok = True
-    for file_path in files_to_test:
+    ok = True
+    for path in files:
         try:
-            with open(file_path, 'r') as f:
-                compile(f.read(), file_path, 'exec')
-            print(f"✅ {file_path} - Valid syntax")
-        except SyntaxError as e:
-            print(f"❌ {file_path} - Syntax error: {e}")
-            all_ok = False
-    
-    return all_ok
+            with open(path) as f:
+                compile(f.read(), path, 'exec')
+            print(f"  PASS  {path}")
+        except FileNotFoundError:
+            print(f"  SKIP  {path} — not found")
+        except SyntaxError as exc:
+            print(f"  FAIL  {path} — {exc}")
+            ok = False
+    return ok
+
+
+# ---------------------------------------------------------------------------
 
 def main():
-    """Run all tests"""
     print("=" * 60)
-    print("🧪 COMPLIANCE MONITOR - INSTALLATION TEST")
+    print("  COMPLIANCE MONITOR — INSTALLATION TEST")
     print("=" * 60)
-    
+
     tests = [
-        ("Python Version", test_python_version),
-        ("Package Imports", test_imports),
-        ("File Structure", test_file_structure),
-        ("Environment Config", test_env_file),
-        ("Python Syntax", test_syntax)
+        ("Python version",       test_python_version),
+        ("Core imports",         test_core_imports),
+        ("Provider SDK",         test_provider_import),
+        ("File structure",       test_file_structure),
+        ("Environment config",   test_env_config),
+        ("Python syntax",        test_syntax),
     ]
-    
+
     results = []
-    for name, test_func in tests:
+    for name, fn in tests:
         try:
-            result = test_func()
-            results.append((name, result))
-        except Exception as e:
-            print(f"❌ Error running {name}: {e}")
+            results.append((name, fn()))
+        except Exception as exc:
+            print(f"  ERROR  {name}: {exc}")
             results.append((name, False))
-    
-    # Summary
+
+    passed = sum(1 for _, r in results if r)
+    total  = len(results)
+
     print("\n" + "=" * 60)
-    print("📊 TEST SUMMARY")
+    print("  SUMMARY")
     print("=" * 60)
-    
-    passed = sum(1 for _, result in results if result)
-    total = len(results)
-    
-    for name, result in results:
-        status = "✅ PASS" if result else "❌ FAIL"
-        print(f"{status} - {name}")
-    
-    print("\n" + "=" * 60)
+    for name, r in results:
+        print(f"  {'PASS' if r else 'FAIL'}  {name}")
+
+    print()
     if passed == total:
-        print("🎉 ALL TESTS PASSED!")
-        print("=" * 60)
-        print("\n✅ Your installation is ready!")
-        print("\n🚀 Next steps:")
-        print("   1. Run: python3 app.py")
-        print("   2. Open: frontend/index.html")
-        print("   3. Click 'Generate Dataset' in the dashboard")
+        print("  All tests passed — ready to run!")
+        print()
+        print("  Next steps:")
+        print("    1.  python3 app.py")
+        print("    2.  Open frontend/index.html")
+        print("    3.  Click Generate Dataset, then Run Evaluation")
         return 0
     else:
-        print(f"⚠️  {total - passed} TEST(S) FAILED")
-        print("=" * 60)
-        print("\n❌ Please fix the issues above before running the app")
-        print("\n📖 See QUICKSTART.md for help")
+        print(f"  {total - passed} test(s) failed — see messages above.")
+        print("  See QUICKSTART.md for help.")
         return 1
 
+
 if __name__ == '__main__':
-    exit(main())
+    sys.exit(main())

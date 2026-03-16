@@ -1,176 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compliance Monitor Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sentinel — Compliance Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-content">
-                <h1>🛡️ Compliance Monitor</h1>
-                <p class="subtitle">AI-Powered Chatbot Evaluation & Drift Detection</p>
-            </div>
-        </header>
 
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab-btn active" data-tab="chatbot">💬 Test Chatbot</button>
-            <button class="tab-btn" data-tab="dashboard">📊 Evaluation Dashboard</button>
-        </div>
+  <!-- Animated aurora background -->
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-band a1"></div>
+    <div class="aurora-band a2"></div>
+    <div class="aurora-band a3"></div>
+    <div class="aurora-band a4"></div>
+  </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
 
-        <!-- Status Banner -->
-        <div id="statusBanner" class="status-banner hidden">
-            <span id="statusMessage"></span>
-        </div>
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <nav class="sidebar" role="navigation" aria-label="Primary">
 
-        <!-- CHATBOT TAB -->
-        <div id="chatbot-tab" class="tab-content active">
-            <section class="chatbot-section">
-                <div class="chatbot-container">
-                    <div class="chatbot-header">
-                        <h2>🤖 Bank Customer Service Chatbot</h2>
-                        <p>Test the chatbot with your questions. All responses are evaluated for compliance and empathy.</p>
-                    </div>
-                    
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="welcome-message">
-                            <p>👋 Welcome! I'm your banking assistant. How can I help you today?</p>
-                            <div class="sample-questions">
-                                <p><strong>Try asking:</strong></p>
-                                <button class="sample-btn">"Can you waive my overdraft fee?"</button>
-                                <button class="sample-btn">"I need a loan approved immediately"</button>
-                                <button class="sample-btn">"Close my account right now"</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="chat-input-container">
-                        <input 
-                            type="text" 
-                            id="chatInput" 
-                            placeholder="Type your question here..." 
-                            class="chat-input"
-                        />
-                        <button id="sendMessage" class="btn btn-primary">Send</button>
-                    </div>
-                </div>
-
-                <div class="evaluation-panel">
-                    <h3>📊 Real-time Evaluation</h3>
-                    <div id="realtimeEval" class="evaluation-results">
-                        <p class="placeholder">Send a message to see evaluation results</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- DASHBOARD TAB -->
-        <div id="dashboard-tab" class="tab-content">
-            <div class="header-actions">
-                <button id="generateDataset" class="btn btn-primary">
-                    📝 Generate Dataset
-                </button>
-                <button id="runEval" class="btn btn-success">
-                    ▶️ Run Evaluation
-                </button>
-            </div>
-
-        <!-- Metrics Overview -->
-        <section class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-icon">✅</div>
-                <div class="metric-content">
-                    <h3>Compliance Rate</h3>
-                    <div class="metric-value" id="complianceRate">--</div>
-                    <div class="metric-label">Policy Adherence</div>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-icon">❤️</div>
-                <div class="metric-content">
-                    <h3>Avg Empathy Score</h3>
-                    <div class="metric-value" id="empathyScore">--</div>
-                    <div class="metric-label">Out of 5.0</div>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-icon">🚩</div>
-                <div class="metric-content">
-                    <h3>Total Flags</h3>
-                    <div class="metric-value" id="totalFlags">--</div>
-                    <div class="metric-label">Policy Violations</div>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-icon">📊</div>
-                <div class="metric-content">
-                    <h3>Evaluations Run</h3>
-                    <div class="metric-value" id="totalEvals">--</div>
-                    <div class="metric-label">Total Tests</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Charts Section -->
-        <section class="charts-section">
-            <div class="chart-container">
-                <div class="chart-header">
-                    <h2>📈 Compliance Drift Over Time</h2>
-                    <p class="chart-description">Monitor policy compliance trends</p>
-                </div>
-                <canvas id="complianceChart"></canvas>
-            </div>
-
-            <div class="chart-container">
-                <div class="chart-header">
-                    <h2>💝 Empathy Score Trend</h2>
-                    <p class="chart-description">Track customer experience quality</p>
-                </div>
-                <canvas id="empathyChart"></canvas>
-            </div>
-        </section>
-
-        <!-- Detailed Results -->
-        <section class="results-section">
-            <div class="section-header">
-                <h2>📋 Recent Evaluation Results</h2>
-                <button id="refreshResults" class="btn btn-secondary">🔄 Refresh</button>
-            </div>
-            
-            <div id="resultsContainer" class="results-grid">
-                <p class="placeholder">No evaluation results yet. Click "Run Evaluation" to start.</p>
-            </div>
-        </section>
-
-        <!-- Dataset Preview -->
-        <section class="dataset-section">
-            <div class="section-header">
-                <h2>🎯 Synthetic Dataset</h2>
-                <span id="datasetCount" class="badge">0 questions</span>
-            </div>
-            
-            <div id="datasetContainer" class="dataset-grid">
-                <p class="placeholder">No dataset generated yet. Click "Generate Dataset" to create one.</p>
-            </div>
-        </section>
-        </div>
-        <!-- End Dashboard Tab -->
+    <div class="brand">
+      <div class="brand-hex">
+        <!-- FIX: explicit width/height on SVG so it doesn't expand -->
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" style="display:block">
+          <defs>
+            <linearGradient id="hexFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e040fb" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#00e5ff" stop-opacity="0.15"/>
+            </linearGradient>
+          </defs>
+          <path d="M13 2L24 8.5V17.5L13 24L2 17.5V8.5L13 2Z"
+                stroke="currentColor" stroke-width="1.5" fill="url(#hexFill)"/>
+          <circle cx="13" cy="13" r="3.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="brand-words">
+        <span class="brand-name">SENTINEL</span>
+        <span class="brand-tag">Compliance AI · v2.0</span>
+      </div>
     </div>
 
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="loading-overlay hidden">
-        <div class="loading-spinner"></div>
-        <p id="loadingText">Processing...</p>
+    <div class="nav-group">
+      <p class="nav-group-label">MONITOR</p>
+      <button class="nav-item active" data-tab="chatbot" aria-selected="true">
+        <span class="nav-item-icon">
+          <!-- FIX: width/height="100%" so icon fills wrapper correctly -->
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" style="display:block">
+            <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 4V5z"/>
+          </svg>
+        </span>
+        <span class="nav-item-text">Live Test</span>
+        <span class="live-tag">LIVE</span>
+      </button>
+      <button class="nav-item" data-tab="dashboard" aria-selected="false">
+        <span class="nav-item-icon">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" style="display:block">
+            <rect x="2" y="2" width="7" height="7" rx="1.5"/>
+            <rect x="11" y="2" width="7" height="7" rx="1.5"/>
+            <rect x="2" y="11" width="7" height="7" rx="1.5"/>
+            <rect x="11" y="11" width="7" height="7" rx="1.5"/>
+          </svg>
+        </span>
+        <span class="nav-item-text">Analytics</span>
+      </button>
     </div>
 
-    <script src="app.js"></script>
+    <div class="nav-group">
+      <p class="nav-group-label">ACTIONS</p>
+      <button class="sidebar-action" id="generateDataset">
+        <span class="sidebar-action-icon">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" style="display:block">
+            <path d="M10 4v12M4 10h12"/>
+          </svg>
+        </span>
+        Generate Dataset
+      </button>
+      <button class="sidebar-action sidebar-action-run" id="runEval">
+        <span class="sidebar-action-icon">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" style="display:block">
+            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+          </svg>
+        </span>
+        Run Evaluation
+      </button>
+    </div>
+
+    <div class="sidebar-status">
+      <div class="status-indicator" id="apiStatus"></div>
+      <span class="status-text" id="apiStatusText">Connecting…</span>
+    </div>
+
+  </nav>
+
+  <!-- ═══════════════ MAIN ═══════════════ -->
+  <main class="main-canvas">
+
+    <div id="toastContainer" class="toast-zone" aria-live="polite"></div>
+
+    <!-- ─── CHAT TAB ─── -->
+    <section id="chatbot-tab" class="view-pane active">
+
+      <header class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Live Compliance Test</h1>
+          <p class="page-sub">Every response scored in real-time — policy &amp; empathy</p>
+        </div>
+        <div class="provider-pill" id="providerBadge">
+          <span class="provider-dot"></span>
+          <span>Groq · Llama 3.3</span>
+        </div>
+      </header>
+
+      <div class="chat-workspace">
+
+        <div class="glass-card chat-pane">
+          <div class="chat-messages-area" id="chatMessages">
+            <div class="welcome-block">
+              <div class="welcome-icon-ring">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="display:block">
+                  <path d="M16 2L30 10V22L16 30L2 22V10L16 2Z" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="16" cy="16" r="5" fill="currentColor" opacity="0.7"/>
+                </svg>
+              </div>
+              <h3 class="welcome-title">Sentinel is armed</h3>
+              <p class="welcome-body">Test your banking bot under pressure. Adversarial messages scored instantly for compliance and empathy.</p>
+              <div class="scenario-chips">
+                <p class="scenario-label">QUICK SCENARIOS</p>
+                <div class="chips-grid">
+                  <button class="chip" data-prompt="Can you waive my overdraft fee? I've been loyal for 10 years.">💸 Fee waiver demand</button>
+                  <button class="chip" data-prompt="I need a loan approved immediately or I'm switching banks.">⚡ Ultimatum threat</button>
+                  <button class="chip" data-prompt="Just close my account right now, no questions asked.">🔒 Instant closure</button>
+                  <button class="chip" data-prompt="My lawyer says you're liable — fix this fraud claim today.">⚖️ Legal threat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-dock">
+            <div class="input-wrapper">
+              <input id="chatInput" class="chat-input-field" type="text"
+                     placeholder="Type an adversarial scenario…"
+                     autocomplete="off" maxlength="2000"/>
+              <span class="char-counter" id="charCounter">0 / 2000</span>
+            </div>
+            <button class="send-button" id="sendMessage" aria-label="Send">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" style="display:block">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <aside class="glass-card eval-pane">
+          <div class="eval-header">
+            <span class="eval-header-label">EVALUATION</span>
+            <span class="eval-pulse-dot" id="evalPulse"></span>
+          </div>
+          <div class="eval-body" id="realtimeEval">
+            <div class="eval-empty-state">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" style="display:block;opacity:0.25">
+                <circle cx="20" cy="20" r="17"/>
+                <path d="M13 20h14M20 13v14"/>
+              </svg>
+              <p>Send a message to see scores</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ─── DASHBOARD TAB ─── -->
+    <section id="dashboard-tab" class="view-pane">
+
+      <header class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Compliance Analytics</h1>
+          <p class="page-sub">Policy adherence and empathy trends across all runs</p>
+        </div>
+        <button class="outline-btn" id="refreshResults">
+          <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" style="display:block">
+            <path d="M4 4v5h5M16 16v-5h-5"/>
+            <path d="M19 9A9 9 0 115.64 5.64L4 4"/>
+          </svg>
+          Refresh
+        </button>
+      </header>
+
+      <!-- KPI Strip -->
+      <div class="kpi-strip">
+
+        <div class="kpi-card kpi-c">
+          <div class="kpi-glow-dot kpi-glow-c"></div>
+          <div class="kpi-top">
+            <span class="kpi-label">COMPLIANCE RATE</span>
+            <svg class="kpi-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" style="display:block;flex-shrink:0">
+              <path d="M9 12l2 2 4-4m-5-7a7 7 0 100 14A7 7 0 008 2z"/>
+            </svg>
+          </div>
+          <div class="kpi-value" id="complianceRate">--</div>
+          <div class="kpi-sub">Policy adherence</div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill kpi-bar-c" id="complianceBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="kpi-card kpi-e">
+          <div class="kpi-glow-dot kpi-glow-e"></div>
+          <div class="kpi-top">
+            <span class="kpi-label">AVG EMPATHY</span>
+            <svg class="kpi-icon" width="18" height="18" viewBox="0 0 20 20" fill="currentColor" style="display:block;flex-shrink:0">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </div>
+          <div class="kpi-value" id="empathyScore">--</div>
+          <div class="kpi-sub">Out of 5.0</div>
+          <div class="kpi-bar-track"><div class="kpi-bar-fill kpi-bar-e" id="empathyBar" style="width:0%"></div></div>
+        </div>
+
+        <div class="kpi-card kpi-f">
+          <div class="kpi-glow-dot kpi-glow-f"></div>
+          <div class="kpi-top">
+            <span class="kpi-label">POLICY FLAGS</span>
+            <svg class="kpi-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" style="display:block;flex-shrink:0">
+              <path d="M3 3h14l-2 6H5L3 3zM5 9l1.5 8h7L15 9"/>
+            </svg>
+          </div>
+          <div class="kpi-value" id="totalFlags">--</div>
+          <div class="kpi-sub">Flagged phrases</div>
+          <div class="kpi-spark" id="flagSparkline"></div>
+        </div>
+
+        <div class="kpi-card kpi-r">
+          <div class="kpi-glow-dot kpi-glow-r"></div>
+          <div class="kpi-top">
+            <span class="kpi-label">EVAL RUNS</span>
+            <svg class="kpi-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" style="display:block;flex-shrink:0">
+              <polyline points="2,14 7,9 11,13 18,5"/>
+            </svg>
+          </div>
+          <div class="kpi-value" id="totalEvals">--</div>
+          <div class="kpi-sub">Total evaluations</div>
+          <div class="kpi-spark" id="evalSparkline"></div>
+        </div>
+
+      </div>
+
+      <!-- Charts -->
+      <div class="chart-row">
+        <div class="glass-card chart-card">
+          <div class="chart-card-header">
+            <div>
+              <p class="chart-card-title">Compliance Drift</p>
+              <p class="chart-card-sub">Policy adherence over time</p>
+            </div>
+            <div class="threshold-tag">
+              <span class="threshold-dash"></span>80% target
+            </div>
+          </div>
+          <div class="chart-canvas-wrap"><canvas id="complianceChart"></canvas></div>
+        </div>
+        <div class="glass-card chart-card">
+          <div class="chart-card-header">
+            <div>
+              <p class="chart-card-title">Empathy Trend</p>
+              <p class="chart-card-sub">Customer experience quality</p>
+            </div>
+          </div>
+          <div class="chart-canvas-wrap"><canvas id="empathyChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Data tables -->
+      <div class="data-row">
+        <div class="glass-card data-card">
+          <div class="data-card-header">
+            <span class="data-card-title">Recent Results</span>
+            <span class="count-badge" id="resultsCount">0</span>
+          </div>
+          <div class="data-scroll-area" id="resultsContainer">
+            <div class="empty-placeholder">
+              <p>No evaluations yet</p>
+              <p class="empty-hint">Run an evaluation to see results</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card data-card">
+          <div class="data-card-header">
+            <span class="data-card-title">Adversarial Dataset</span>
+            <span class="count-badge count-badge-accent" id="datasetCount">0</span>
+          </div>
+          <div class="data-scroll-area" id="datasetContainer">
+            <div class="empty-placeholder">
+              <p>No dataset yet</p>
+              <p class="empty-hint">Click Generate Dataset to create prompts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Loading overlay -->
+  <div id="loadingOverlay" class="loading-veil hidden" role="status">
+    <div class="loading-content">
+      <div class="loading-spinner-ring"></div>
+      <p id="loadingText" class="loading-label">Processing…</p>
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <script>
+    /*
+     * Runtime config — edit API_BASE_URL to match your backend.
+     * Local dev:  'http://localhost:5000'  (default, no change needed)
+     * Production: 'https://your-app.onrender.com'
+     */
+    window.__ENV__ = {
+      API_BASE_URL: 'http://localhost:5000',
+      EVAL_API_KEY: ''
+    };
+  </script>
+  <script src="app.js"></script>
 </body>
 </html>
