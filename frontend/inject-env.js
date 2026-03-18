@@ -13,7 +13,8 @@ const path = require('path');
 const indexPath = path.join(__dirname, 'index.html');
 let html = fs.readFileSync(indexPath, 'utf8');
 
-const apiUrl  = process.env.API_BASE_URL  || 'http://localhost:5000';
+// Strip trailing slash — prevents CORS mismatch if env var was set with /
+const apiUrl  = (process.env.API_BASE_URL  || 'http://localhost:5000').replace(/\/+$/, '');
 const apiKey  = process.env.EVAL_API_KEY  || '';
 
 html = html

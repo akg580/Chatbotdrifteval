@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    connect-src *;
+    img-src 'self' data:;
+  "/>
   <title>Sentinel — Compliance Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Outfit:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -321,8 +330,18 @@
      * Local dev:  'http://localhost:5000'  (default, no change needed)
      * Production: 'https://your-app.onrender.com'
      */
+    /*
+     * ── API Configuration ──────────────────────────────────────────
+     * LOCAL DEV:   set API_BASE_URL to 'http://localhost:5000'
+     * PRODUCTION:  set API_BASE_URL to your Render URL below
+     *              (no trailing slash)
+     *
+     * This file is served directly — for Netlify production builds,
+     * inject-env.js replaces these values at build time using
+     * Netlify environment variables.
+     */
     window.__ENV__ = {
-      API_BASE_URL: 'http://localhost:5000',
+      API_BASE_URL: 'https://chatbotdrifteval.onrender.com',
       EVAL_API_KEY: ''
     };
   </script>
