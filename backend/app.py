@@ -48,11 +48,18 @@ for _r in _startup_health:
 app = Flask(__name__)
 
 if Config.CORS_ORIGINS:
-    _origins = [o.strip() for o in Config.CORS_ORIGINS.split(',') if o.strip()]
-    CORS(app, origins=_origins, supports_credentials=False)
+    # FIX: strip trailing slashes — Render env vars often have them
+    _origins = [o.strip().rstrip('/') for o in Config.CORS_ORIGINS.split(',') if o.strip()]
+    CORS(app,
+         origins=_origins,
+         supports_credentials=False,
+         allow_headers=['Content-Type', 'X-API-Key', 'X-Request-ID'],
+         methods=['GET', 'POST', 'DELETE', 'OPTIONS'])
     logger.info("CORS restricted to: %s", _origins)
 else:
-    CORS(app)
+    CORS(app,
+         allow_headers=['Content-Type', 'X-API-Key', 'X-Request-ID'],
+         methods=['GET', 'POST', 'DELETE', 'OPTIONS'])
     logger.warning("CORS open to all origins — set CORS_ORIGINS for production")
 
 # ── Services ──────────────────────────────────────────────────────────
@@ -60,6 +67,18 @@ dataset_gen = DatasetGenerator()
 eval_runner = EvalRunner()
 queue       = get_queue()
 os.makedirs('data', exist_ok=True)
+
+# Limit request body to 5MB — prevents memory exhaustion on large payloads
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # 5 MB
+
+
+# ── Explicit OPTIONS handler for CORS preflight ──────────────────────
+# Some proxies / hosting platforms strip CORS headers unless OPTIONS
+# is explicitly handled. Flask-CORS normally handles this, but this
+# is a belt-and-suspenders guarantee.
+@app.route('/api/<path:path>', methods=['OPTIONS'])
+def options_handler(path):
+    return '', 204
 
 
 # ── Request lifecycle ─────────────────────────────────────────────────
@@ -101,6 +120,11 @@ def require_api_key(f):
 @app.errorhandler(400)
 def bad_request(exc):
     return jsonify({'success': False, 'error': 'Bad request'}), 400
+
+
+@app.errorhandler(413)
+def request_too_large(exc):
+    return jsonify({'success': False, 'error': 'Request body exceeds 5MB limit'}), 413
 
 
 @app.errorhandler(404)
@@ -245,6 +269,16 @@ def run_evaluation():
 
     if len(dataset) > Config.MAX_DATASET_COUNT:
         dataset = dataset[:Config.MAX_DATASET_COUNT]
+
+    # Validate every item has a non-empty 'question' string
+    invalid = [i for i, d in enumerate(dataset)
+               if not isinstance(d, dict) or not str(d.get('question', '')).strip()]
+    if invalid:
+        return jsonify({
+            'success': False,
+            'error': '{} dataset item(s) are missing a "question" field (indices: {})'.format(
+                len(invalid), invalid[:5]),
+        }), 400
 
     job_id = queue.submit(_run_eval_with_save, dataset,
                           dataset_size=len(dataset))

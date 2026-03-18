@@ -21,6 +21,25 @@ logger = logging.getLogger(__name__)
 def _env_str(key: str, default: str = '') -> str:
     return os.getenv(key, default).strip()
 
+def _env_float(key, default, min_val=0.5, max_val=120.0):
+    # type: (str, float, float, float) -> float
+    """Read a float env var with clear error on bad values."""
+    raw = os.getenv(key, str(default)).strip()
+    try:
+        val = float(raw)
+    except ValueError:
+        raise ValueError(
+            "Environment variable {}={!r} is not a valid number. "
+            "Expected a value between {} and {}.".format(key, raw, min_val, max_val)
+        )
+    if not (min_val <= val <= max_val):
+        raise ValueError(
+            "Environment variable {}={} is out of range [{}, {}].".format(
+                key, val, min_val, max_val)
+        )
+    return val
+
+
 def _env_int(key: str, default: int, min_val: int = 1, max_val: int = 10_000) -> int:
     """Read an integer env var with a clear error on bad values. B1 fix."""
     raw = os.getenv(key, str(default)).strip()
@@ -94,8 +113,8 @@ class Config:
     CHATBOT_API_KEY:  str = _env_str('CHATBOT_API_KEY')
 
     # Timeouts for outbound chatbot calls (seconds)
-    CHATBOT_CONNECT_TIMEOUT: float = float(os.getenv('CHATBOT_CONNECT_TIMEOUT', '5'))
-    CHATBOT_READ_TIMEOUT:    float = float(os.getenv('CHATBOT_READ_TIMEOUT', '15'))
+    CHATBOT_CONNECT_TIMEOUT: float = _env_float('CHATBOT_CONNECT_TIMEOUT', 5.0, 0.5, 60.0)
+    CHATBOT_READ_TIMEOUT:    float = _env_float('CHATBOT_READ_TIMEOUT', 15.0, 1.0, 120.0)
 
     # ------------------------------------------------------------------
     # API authentication for this server's own endpoints
@@ -105,7 +124,8 @@ class Config:
     # Comma-separated list of allowed CORS origins.
     # Example: CORS_ORIGINS=https://dashboard.mybank.com,https://admin.mybank.com
     # Leave empty to allow all origins (local dev only).
-    CORS_ORIGINS: str = _env_str('CORS_ORIGINS')
+    # FIX: strip trailing slashes — Render env vars often have them
+    CORS_ORIGINS: str = _env_str('CORS_ORIGINS').rstrip('/')
 
     # ------------------------------------------------------------------
     # Request limits  (B1 fix: guarded int parsing)
